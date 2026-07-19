@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CareerPilot AI - Dashboard</title>
+<!-- Google Fonts: Hanken Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#dae2fd",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#5c647a",
+                    "tertiary-fixed": "#e0e3e5",
+                    "outline-variant": "#bec9c0",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-container": "#727577",
+                    "surface-variant": "#d3e4fe",
+                    "primary-fixed": "#9ef4c5",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed-variant": "#3f465c",
+                    "on-primary-container": "#f6fff6",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#6f7a72",
+                    "tertiary": "#595c5e",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#fbfdff",
+                    "surface-container-low": "#eff4ff",
+                    "on-primary-fixed": "#002112",
+                    "primary-fixed-dim": "#83d8aa",
+                    "on-secondary-fixed": "#131b2e",
+                    "on-primary-fixed-variant": "#005234",
+                    "surface-bright": "#f8f9ff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#0b1c30",
+                    "inverse-primary": "#83d8aa",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-dim": "#cbdbf5",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "surface-container": "#e5eeff",
+                    "surface-tint": "#076c47",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#016a45",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#3f4942",
+                    "surface-container-high": "#dce9ff",
+                    "secondary-container": "#dae2fd",
+                    "secondary": "#565e74",
+                    "background": "#f8f9ff",
+                    "on-background": "#0b1c30",
+                    "inverse-surface": "#213145",
+                    "primary-container": "#2c835c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "gutter": "16px",
+                    "margin-mobile": "20px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "tap-target": "48px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Hanken Grotesk"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-sm-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-md-mobile": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; background-color: #f8f9ff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .card-shadow { box-shadow: 0px 4px 20px rgba(15, 23, 42, 0.05); }
+        .active-card-shadow { box-shadow: 0px 10px 30px rgba(15, 23, 42, 0.12); }
+        .pulse-animation { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        .rotate-animation { animation: rotate 3s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm flex justify-between items-center px-margin-mobile h-tap-target">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-headline-md text-headline-md-mobile font-bold text-primary">CareerPilot AI</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="font-label-md text-on-surface-variant hidden xs:block">Candidate #341</span>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a modern software engineer candidate with a friendly expression, soft studio lighting, high-quality digital photography style with a clean, neutral background that fits a corporate tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7mBZxXhAaa9klfzreoCSOdpeu_GLWkXELy0GRGA8DFJFlcX0-2Vv--gHw5zP8AAQkNFoPZ-2MoBAlYVgHACzby0mST01T6CDU9xX9XYL43gtzOQaI_Zy89XAVrwdI14_gSXGL_1AO7PGzZJH0Cipimvjg3-lt73pJxem8UbeKQ8DEpUJAyEBpTfLPAyXjWcXfUQVjq3XnlMmZZEr2Sypwg_N9qjHMNQFw6Uoewdh3gCaCkLEXVdC68dA-cCjgnDzKpWUMXb3Rzl3r"/>
+</div>
+</div>
+</header>
+<main class="mt-20 px-margin-mobile space-y-lg">
+<!-- Hero Section -->
+<section class="py-md">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary-container text-on-primary-container mb-sm">
+<span class="material-symbols-outlined text-[16px] mr-1">auto_awesome</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider">Step-by-Step Flow</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface leading-tight">Automate Your Job Application</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Leverage AI to tailor your materials for every role in seconds.</p>
+</section>
+<!-- Card 1: Upload Documents -->
+<div class="bg-surface-container-lowest rounded-xl p-md card-shadow border border-slate-100">
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-8 h-8 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm-mobile">1. Upload Documents</h2>
+</div>
+<div class="space-y-md">
+<!-- Resume Zone -->
+<div>
+<label class="block font-label-md text-on-surface-variant mb-xs">Your Resume</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-lg flex flex-col items-center justify-center text-center bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-outline mb-sm group-hover:scale-110 transition-transform">upload_file</span>
+<p class="font-body-md text-on-surface-variant font-medium">Drop your RESUME</p>
+<button class="mt-md px-md h-10 rounded-lg border border-primary text-primary font-label-md hover:bg-primary-container/10 transition-colors">Select File</button>
+</div>
+<!-- Validated Status -->
+<div class="mt-sm flex items-center gap-xs text-primary bg-primary/5 p-sm rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="text-label-md font-medium">Candidate_Resume_v2.pdf</span>
+</div>
+</div>
+<!-- JD Zone -->
+<div>
+<label class="block font-label-md text-on-surface-variant mb-xs">Drop the JOB DESCRIPTION</label>
+<textarea class="w-full min-h-[120px] bg-surface rounded-xl border border-outline-variant p-md font-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Paste the job description here...">Looking for a Senior Backend Engineer proficient in Python, Go, and Distributed Systems. Experience with AWS and MCP servers is a plus. Strong focus on AI integration and system reliability.</textarea>
+</div>
+<button class="w-full h-tap-target bg-primary text-white rounded-xl font-headline-sm flex items-center justify-center gap-sm active:scale-95 transition-transform shadow-md shadow-primary/20">
+<span>Start Application Process</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: AI Processing -->
+<div class="bg-surface-container-lowest rounded-xl p-md card-shadow border border-slate-100 relative overflow-hidden">
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined rotate-animation">settings</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm-mobile">2. AI Processing</h2>
+</div>
+<!-- Collaboration Visual -->
+<div class="flex items-center justify-center gap-md py-md mb-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<div class="flex flex-col items-center gap-xs">
+<div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">smart_toy</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">AI Engine</span>
+</div>
+<div class="flex-1 flex flex-col items-center relative">
+<div class="w-full h-[2px] bg-gradient-to-r from-primary to-blue-500 rounded-full pulse-animation"></div>
+<span class="absolute -top-6 text-[10px] font-medium bg-white px-2 rounded-full border border-outline-variant whitespace-nowrap">Using Google ADK &amp; MCP</span>
+</div>
+<div class="flex flex-col items-center gap-xs">
+<div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-on-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist vector icon representation of a human user avatar in a modern tech context. Soft grayscale tones with subtle depth, professionally designed for a high-end enterprise dashboard interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYzqudsHcKoy1oFytfjZNduOB4mKSb2LfX4JuSgESogPsw3CEqXgXMP4jC2wWESLBhTjfNEncFDz08C1R8JR4nyfQWw_SU-jxB-w55hg2x3DJYTjkYxWOFU839ZqVeRqeqeZiXWtyC6lBg1pgq6SzX2MhP_KajD3s6VkR_LFueK34Gch-FZSBHwwVaG1yRwyKoVPKkxamXU04AR2wNcclNfRH_n71Q9Fh2FZXAIRtJYvro3U_5DqlbkqgO_rH613vpnrrZyWQvEJNn"/>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Reviewer</span>
+</div>
+</div>
+<!-- Status List -->
+<ul class="space-y-sm">
+<li class="flex items-center justify-between p-sm rounded-lg bg-blue-50 border border-blue-100">
+<div class="flex items-center gap-sm">
+<div class="w-6 h-6 rounded-full border-2 border-blue-400 border-t-transparent rotate-animation"></div>
+<span class="text-body-md font-medium text-blue-700">Qualification Evaluation</span>
+</div>
+<span class="text-label-sm font-semibold text-blue-600 px-2 py-0.5 bg-blue-100 rounded-full">ACTIVE</span>
+</li>
+<li class="flex items-center justify-between p-sm rounded-lg bg-emerald-50 border border-emerald-100">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-emerald-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md text-emerald-800">Resume Analysis</span>
+</div>
+<span class="text-label-sm text-emerald-600 font-medium italic">Complete</span>
+</li>
+<li class="flex items-center justify-between p-sm rounded-lg bg-emerald-50 border border-emerald-100">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-emerald-600" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md text-emerald-800">JD Requirements Extraction</span>
+</div>
+<span class="text-label-sm text-emerald-600 font-medium italic">Complete</span>
+</li>
+<li class="flex items-center justify-between p-sm rounded-lg bg-slate-50 border border-slate-100">
+<div class="flex items-center gap-sm opacity-50">
+<span class="material-symbols-outlined text-slate-400">pending</span>
+<span class="text-body-md text-on-surface-variant">Content Generation</span>
+</div>
+<span class="text-label-sm text-slate-400 font-medium">Pending</span>
+</li>
+</ul>
+</div>
+<!-- Card 3: Results & Download -->
+<div class="bg-surface-container-lowest rounded-xl p-md card-shadow border border-slate-100">
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600">
+<span class="material-symbols-outlined">download</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm-mobile">3. Tailored Artifacts</h2>
+</div>
+<!-- Match Score -->
+<div class="mb-lg">
+<div class="flex justify-between items-end mb-xs">
+<p class="text-on-surface-variant font-label-md">Application Match</p>
+<p class="text-primary font-headline-sm">88% <span class="text-label-sm font-medium">Strong Match</span></p>
+</div>
+<div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000 ease-out" style="width: 88%;"></div>
+</div>
+</div>
+<!-- Download Buttons -->
+<div class="space-y-sm">
+<button class="w-full h-tap-target bg-primary text-white rounded-xl flex items-center justify-between px-md active:scale-95 transition-transform group">
+<span class="font-label-md">Download ATS-Friendly RESUME (PDF)</span>
+<span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">download_for_offline</span>
+</button>
+<button class="w-full h-tap-target bg-primary text-white rounded-xl flex items-center justify-between px-md active:scale-95 transition-transform group">
+<span class="font-label-md">Download Personalized COVER LETTER (PDF)</span>
+<span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">download_for_offline</span>
+</button>
+</div>
+<p class="mt-lg text-center text-label-sm text-on-surface-variant px-md">
+<span class="material-symbols-outlined text-[14px] align-middle mr-1">shield</span>
+                Privacy Note: Your data is processed securely and not used for training without consent.
+            </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center pt-sm pb-lg px-gutter bg-surface shadow-lg z-50 border-t border-outline-variant">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<!-- Applications -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="font-label-sm text-label-sm">Applications</span>
+</a>
+<!-- Insights -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm">Insights</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Interactive script for progress bar simulation -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressBar = document.querySelector('.bg-primary.rounded-full');
+            if (progressBar) {
+                progressBar.style.width = '0%';
+                setTimeout(() => {
+                    progressBar.style.width = '88%';
+                }, 500);
+            }
+        });
+    </script>
+</body></html>

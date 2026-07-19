@@ -1,0 +1,22 @@
+{
+  "projectId": "9557717348377173718",
+  "title": "CareerPilot AI SaaS Website",
+  "designSystem": "assets/13151940321688403206",
+  "Last Sync Time": "2026-07-03T06:33:00Z",
+  "screens": [
+    {
+      "id": "50f7a16921624bf3b508c1e2973346fa",
+      "title": "CareerPilot AI Landing Page - About Section Added",
+      "deviceType": "DESKTOP",
+      "htmlPath": "designs/landing_page.html",
+      "screenshotPath": "designs/landing_page.png"
+    },
+    {
+      "id": "9c70fdbff7544492a386eaa44e5a151a",
+      "title": "Resume Optimizer Dashboard",
+      "deviceType": "DESKTOP",
+      "htmlPath": "designs/dashboard.html",
+      "screenshotPath": "designs/dashboard.png"
+    }
+  ]
+}
